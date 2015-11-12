@@ -1,0 +1,21 @@
+{
+    "name": "crazyinventor/mailtrapper",
+    "description": "A mailtrap.io wrapper class",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Schneider",
+            "email": "david@crazyinventor.net",
+            "homepage": "http://www.crazyinventor.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CrazyInventor\\": "src/"
+        }
+    }
+}
