@@ -1,6 +1,6 @@
 {
     "name": "crazyinventor/mailtrapper",
-    "description": "A mailtrap.io wrapper class",
+    "description": "A mailtrap.io API wrapper class",
     "license": "MIT",
     "authors": [
         {
