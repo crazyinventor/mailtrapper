@@ -28,22 +28,33 @@ class Mailtrapper {
 		$url = $this->buildUrl($path);
 		return $this->process($url);
 	}
+	
+	public function clearInbox($inbox_id){
+        $path = 'inboxes/'.$inbox_id.'/clean';
+        $url = $this->buildUrl($path);
+        $context = stream_context_create(array('http'=>array(
+            'method'=>"PATCH",
+            'header' => 'Api-Token: '.$this->token)));
+        return $this->process($url, $context);
+    }
 
 	protected function buildUrl($path)
-	{
-		return $this->url
-				. $path
-				. $this->format
-				. '?api_token='
-				. $this->token;
-	}
+    {
+        return $this->url
+        . $path
+        . $this->format;
+    }
 
-	protected function process($url)
-	{
-		return json_decode(
-				file_get_contents($url),
-				true
-		);
-	}
+	protected function process($url, $context = null)
+    {
+        if ($context==null)
+            $context = stream_context_create(array('http'=>array(
+                'method'=>"GET",
+                'header' => 'Api-Token: '.$this->token)));
+        return json_decode(
+            file_get_contents($url, null, $context),
+            true
+        );
+    }
 
 }
