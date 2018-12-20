@@ -45,6 +45,58 @@ class Mailtrapper {
 		return $this->process($url);
 	}
 
+    /**
+     * Get raw HTML body of message
+     * @param $inbox_id
+     * @param $message_id
+     * @return string
+     */
+    public function getRawHtmlBody($inbox_id, $message_id)
+    {
+        $path = '/api/v1/inboxes/'.$inbox_id.'/messages/'.$message_id.'/body.html';
+        $url = $this->buildUrl($path);
+        return $this->process($url);
+    }
+
+    /**
+     * Get formated for view HTML body of message
+     * @param $inbox_id
+     * @param $message_id
+     * @return string
+     */
+    public function getHtmlBody($inbox_id, $message_id)
+    {
+        $path = '/api/v1/inboxes/'.$inbox_id.'/messages/'.$message_id.'/body.htmlsource';
+        $url = $this->buildUrl($path);
+        return $this->process($url);
+    }
+
+    /**
+     * Get text body of message
+     * @param $inbox_id
+     * @param $message_id
+     * @return string
+     */
+    public function getTextBody($inbox_id, $message_id)
+    {
+        $path = '/api/v1/inboxes/'.$inbox_id.'/messages/'.$message_id.'body.txt';
+        $url = $this->buildUrl($path);
+        return $this->process($url);
+    }
+
+    /**
+     * Get raw body of message
+     * @param $inbox_id
+     * @param $message_id
+     * @return string
+     */
+    public function getRawBody($inbox_id, $message_id)
+    {
+        $path = '/api/v1/inboxes/'.$inbox_id.'/messages/'.$message_id.'body.raw';
+        $url = $this->buildUrl($path);
+        return $this->process($url);
+    }
+
 	/**
 	 * Get mails by inbox ID
 	 * @param $inbox_id
