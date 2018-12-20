@@ -79,7 +79,7 @@ class Mailtrapper {
      */
     public function getTextBody($inbox_id, $message_id)
     {
-        $path = '/api/v1/inboxes/'.$inbox_id.'/messages/'.$message_id.'body.txt';
+        $path = '/api/v1/inboxes/'.$inbox_id.'/messages/'.$message_id.'/body.txt';
         $url = $this->buildUrl($path);
         return $this->process($url);
     }
@@ -92,7 +92,7 @@ class Mailtrapper {
      */
     public function getRawBody($inbox_id, $message_id)
     {
-        $path = '/api/v1/inboxes/'.$inbox_id.'/messages/'.$message_id.'body.raw';
+        $path = '/api/v1/inboxes/'.$inbox_id.'/messages/'.$message_id.'/body.raw';
         $url = $this->buildUrl($path);
         return $this->process($url);
     }
